@@ -50,6 +50,18 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         exclude: /(node_modules)/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        // for css files & typescript interactions
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          '@teamsupercell/typings-for-css-modules-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: true }
+          }
+        ]
       }
     ]
   },
@@ -61,7 +73,7 @@ module.exports = {
     publicPath: '/build/',
     port: 8080,
     proxy: {
-      '/client': 'http://localhost:8080'
+      '/client': 'http://localhost:3000'
     },
     hot: true,
     historyApiFallback: true

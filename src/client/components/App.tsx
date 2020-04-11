@@ -1,5 +1,13 @@
-import * as React from "react";
+import React, { FC } from 'react';
+import { Switch } from 'react-router-dom';
 
-export const App = () => (
-  <div>React App with Hot Module Reloading.</div>
+const App: FC = () => (
+  <div className="app">
+  <Switch>
+    <div>This is a working boilerplate with React Router!</div>
+  </Switch>
+  </div>
 );
+
+export default App;
+// TO DO: Get Redux up and running
